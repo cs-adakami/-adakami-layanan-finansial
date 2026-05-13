@@ -268,19 +268,20 @@
         </section>
 
         <section class="card warning">
-          <strong>Tentang Kami</strong>
-          <p>Pusat informasi dan bantuan resmi AdaKami yang memberikan dukungan terpadu 24 jam untuk kenyamanan dan kepuasan pelanggan.</p>
+          <strong>Catatan Keamanan</strong>
+          <p>Halaman ini bukan situs resmi institusi keuangan mana pun. Jangan kirim OTP, PIN, password, data kartu, dokumen identitas, atau data sensitif melalui chat.</p>
         </section>
 
         <footer>© 2026 Pusat Informasi Layanan. Seluruh hak cipta dilindungi.</footer>
       </section>
     </main>
 
+    <script src="./contact-config.js"></script>
     <script>
-      const contactConfig = {
-        whatsappNumber: 'YOUR_WHATSAPP_NUMBER',
-        whatsappMessage: 'Tulis pesan WhatsApp di sini',
-        displayPhone: 'YOUR_WHATSAPP_NUMBER'
+      const contactConfig = window.contactConfig || {
+        whatsappNumber: '',
+        whatsappMessage: '',
+        displayPhone: 'Nomor belum diatur'
       };
 
       const normalizedNumber = contactConfig.whatsappNumber.replace(/[^0-9]/g, '').replace(/^0/, '62');

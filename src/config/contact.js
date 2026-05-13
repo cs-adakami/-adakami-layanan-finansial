@@ -1,6 +1,6 @@
 export const contactConfig = {
   whatsappNumber: '62822111378',
-  whatsappMessage: 'Tulis pesan WhatsApp di sini',
+  whatsappMessage: 'Hallo Adakami Saya Memerlukan Bantuan?',
   displayPhone: '0822111378',
   serviceName: 'Layanan Finansial',
   pageTitle: 'Pusat Bantuan Layanan Finansial',

@@ -226,9 +226,9 @@
       <div class="bg"></div>
       <section class="container">
         <header class="header">
-          <div class="badge">✓ Layanan Finansial</div>
-          <h1>Pusat Bantuan Layanan Finansial</h1>
-          <p>Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.</p>
+          <div class="badge" id="serviceName">✓ Layanan Finansial</div>
+          <h1 id="pageTitle">Pusat Bantuan Layanan Finansial</h1>
+          <p id="pageSubtitle">Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.</p>
         </header>
 
         <section class="card main-card">
@@ -269,30 +269,26 @@
 
         <section class="card warning">
           <strong>Catatan Keamanan</strong>
-          <p>Halaman ini bukan situs resmi institusi keuangan mana pun. Jangan kirim OTP, PIN, password, data kartu, dokumen identitas, atau data sensitif melalui chat.</p>
+          <p id="disclaimer">Jangan kirim OTP, PIN, password, data kartu, dokumen identitas, atau data sensitif melalui chat.</p>
         </section>
 
         <footer>© 2026 Pusat Informasi Layanan. Seluruh hak cipta dilindungi.</footer>
       </section>
     </main>
 
-    <script src="./contact-config.js"></script>
-    <script>
-      const contactConfig = window.contactConfig || {
-        whatsappNumber: '',
-        whatsappMessage: '',
-        displayPhone: 'Nomor belum diatur'
-      };
+    <script type="module">
+      import { contactConfig, getWhatsappLink } from './src/config/contact.js';
 
-      const normalizedNumber = contactConfig.whatsappNumber.replace(/[^0-9]/g, '').replace(/^0/, '62');
-      const waUrl = normalizedNumber
-        ? `https://wa.me/${normalizedNumber}?text=${encodeURIComponent(contactConfig.whatsappMessage)}`
-        : '#';
+      const whatsappUrl = getWhatsappLink();
 
-      document.getElementById('displayPhone').textContent = contactConfig.displayPhone;
-      document.getElementById('waButton').href = waUrl;
+      document.getElementById('serviceName').textContent = `✓ ${contactConfig.serviceName || 'Layanan Finansial'}`;
+      document.getElementById('pageTitle').textContent = contactConfig.pageTitle || 'Pusat Bantuan Layanan Finansial';
+      document.getElementById('pageSubtitle').textContent = contactConfig.pageSubtitle || 'Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.';
+      document.getElementById('displayPhone').textContent = contactConfig.displayPhone || 'Nomor belum diatur';
+      document.getElementById('waButton').href = whatsappUrl;
+      document.getElementById('disclaimer').textContent = contactConfig.disclaimer || 'Jangan kirim OTP, PIN, password, data kartu, dokumen identitas, atau data sensitif melalui chat.';
       document.querySelectorAll('[data-wa]').forEach((el) => {
-        el.href = waUrl;
+        el.href = whatsappUrl;
       });
     </script>
   </body>

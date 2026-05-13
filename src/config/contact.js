@@ -6,8 +6,10 @@ export const contactConfig = {
   pageTitle: 'Pusat Bantuan Layanan Finansial',
   pageSubtitle: 'Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.',
   address: 'Indonesia',
-  disclaimer:
-    'Layanan Pelanggan Resmi Pusat informasi dan bantuan resmi AdaKami yang memberikan dukungan terpadu 24 jam untuk kenyamanan dan kepuasan pelanggan.',
+  logoImage: './logoweb.png',
+  aboutTitle: 'Tentang Kami',
+  aboutText:
+    'Kami menyediakan halaman informasi bantuan layanan finansial yang mudah diakses, responsif, dan terhubung ke WhatsApp untuk memudahkan pengunjung mengirim pesan.',
 };
 
 export function getWhatsappLink() {

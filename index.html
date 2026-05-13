@@ -86,7 +86,8 @@
     </main>
 
     <script type="module">
-      import { contactConfig, getWhatsappLink } from './src/config/contact.js';
+      const configModule = await import(`./src/config/contact.js?v=${Date.now()}`);
+      const { contactConfig, getWhatsappLink } = configModule;
 
       const whatsappUrl = getWhatsappLink();
       const logoImage = document.getElementById('logoImage');

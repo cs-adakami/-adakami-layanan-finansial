@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cs-adakami.github.io/-adakami-layanan-finansial/sitemap.xml
+Sitemap: https://www.pusat-layanan-adakamispt.online/sitemap.xml

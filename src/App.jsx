@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Wallet,
 } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { contactConfig, getWhatsappLink } from './config/contact.js';
 
@@ -143,6 +144,7 @@ function App() {
           Siap digunakan untuk project Vite React.
         </footer>
       </section>
+      <Analytics />
       <SpeedInsights />
     </main>
   );

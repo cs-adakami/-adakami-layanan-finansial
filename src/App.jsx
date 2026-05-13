@@ -1,5 +1,4 @@
 import {
-  AlertTriangle,
   ChevronRight,
   Clock,
   CreditCard,
@@ -36,6 +35,22 @@ const menuItems = [
   },
 ];
 
+function LogoMark() {
+  return (
+    <div className="logo-mark">
+      <img
+        src={contactConfig.logoImage}
+        alt="Logo website"
+        onError={(event) => {
+          event.currentTarget.style.display = 'none';
+          event.currentTarget.nextElementSibling.style.display = 'grid';
+        }}
+      />
+      <span>A</span>
+    </div>
+  );
+}
+
 function App() {
   const whatsappUrl = getWhatsappLink();
 
@@ -47,8 +62,8 @@ function App() {
     <main className="page-shell">
       <div className="hero-bg" />
 
-      <section className="container">
-        <header className="hero-header">
+      <section className="container app-layout">
+        <header className="hero-header reveal reveal-1">
           <div className="badge">
             <ShieldCheck size={14} />
             {contactConfig.serviceName}
@@ -57,68 +72,72 @@ function App() {
           <p>{contactConfig.pageSubtitle}</p>
         </header>
 
-        <section className="main-card">
-          <div className="logo-mark">A</div>
-          <h2>Butuh Bantuan Sekarang?</h2>
-          <p>
-            Klik tombol di bawah untuk membuka WhatsApp dengan pesan otomatis yang sudah disiapkan.
-          </p>
-          <button className="primary-button" onClick={openWhatsapp}>
-            <MessageCircle size={19} />
-            Hubungi via WhatsApp
-          </button>
-        </section>
+        <div className="content-grid">
+          <section className="main-card reveal reveal-2">
+            <LogoMark />
+            <h2>Butuh Bantuan Sekarang?</h2>
+            <p>
+              Klik tombol di bawah untuk membuka WhatsApp dengan pesan otomatis yang sudah disiapkan.
+            </p>
+            <button className="primary-button" onClick={openWhatsapp}>
+              <MessageCircle size={19} />
+              Hubungi via WhatsApp
+            </button>
+          </section>
 
-        <section className="menu-list">
-          {menuItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <button className="menu-card" key={item.title} onClick={openWhatsapp}>
-                <span className="menu-icon">
-                  <Icon size={23} />
-                </span>
-                <span className="menu-text">
-                  <strong>{item.title}</strong>
-                  <small>{item.description}</small>
-                </span>
-                <ChevronRight size={18} className="chevron" />
-              </button>
-            );
-          })}
-        </section>
+          <section className="menu-list reveal reveal-3">
+            {menuItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <button className="menu-card" key={item.title} onClick={openWhatsapp}>
+                  <span className="menu-icon">
+                    <Icon size={23} />
+                  </span>
+                  <span className="menu-text">
+                    <strong>{item.title}</strong>
+                    <small>{item.description}</small>
+                  </span>
+                  <ChevronRight size={18} className="chevron" />
+                </button>
+              );
+            })}
+          </section>
+        </div>
 
-        <section className="info-card">
-          <div className="section-title">
-            <Info size={18} />
-            <h3>Informasi Halaman</h3>
-          </div>
-          <p>
-            Halaman ini dibuat untuk mempermudah pengunjung menghubungi bantuan melalui WhatsApp.
-          </p>
-
-          <div className="detail-row">
-            <MapPin size={18} />
-            <div>
-              <strong>Area Layanan</strong>
-              <span>{contactConfig.address}</span>
+        <div className="content-grid bottom-grid">
+          <section className="info-card reveal reveal-4">
+            <div className="section-title">
+              <Info size={18} />
+              <h3>Informasi Halaman</h3>
             </div>
-          </div>
+            <p>
+              Halaman ini dibuat untuk mempermudah pengunjung menghubungi bantuan melalui WhatsApp.
+            </p>
 
-          <button className="phone-row" onClick={openWhatsapp}>
-            <Phone size={16} />
-            <strong>{contactConfig.displayPhone}</strong>
-          </button>
-        </section>
+            <div className="detail-row">
+              <MapPin size={18} />
+              <div>
+                <strong>Area Layanan</strong>
+                <span>{contactConfig.address}</span>
+              </div>
+            </div>
 
-        <section className="warning-card">
-          <div>
-            <AlertTriangle size={17} />
-            <strong>Catatan Keamanan</strong>
-          </div>
-          <p>{contactConfig.disclaimer}</p>
-        </section>
+            <button className="phone-row" onClick={openWhatsapp}>
+              <Phone size={16} />
+              <strong>{contactConfig.displayPhone}</strong>
+            </button>
+          </section>
 
-        <footer>
+          <section className="about-card reveal reveal-5">
+            <div>
+              <Info size={17} />
+              <strong>{contactConfig.aboutTitle}</strong>
+            </div>
+            <p>{contactConfig.aboutText}</p>
+          </section>
+        </div>
+
+        <footer className="reveal reveal-5">
           <Clock size={13} />
           Siap digunakan untuk project Vite React.
         </footer>

@@ -26,8 +26,8 @@
       .bg {
         position: absolute;
         inset: 0 0 auto 0;
-        height: 430px;
-        background: linear-gradient(180deg, #153e88 0%, #2467d5 60%, #f8fafc 100%);
+        height: 470px;
+        background: radial-gradient(circle at top left, rgba(255,255,255,.2), transparent 32%), linear-gradient(180deg, #153e88 0%, #2467d5 60%, #f8fafc 100%);
         border-bottom-left-radius: 56px;
         border-bottom-right-radius: 56px;
       }
@@ -35,15 +35,16 @@
       .container {
         position: relative;
         z-index: 1;
-        width: min(100%, 460px);
+        width: min(100%, 1120px);
         margin: 0 auto;
-        padding: 28px 20px 36px;
+        padding: 32px 20px 42px;
       }
 
       .header {
         text-align: center;
         color: white;
-        margin: 10px 0 28px;
+        margin: 10px auto 30px;
+        max-width: 620px;
       }
 
       .badge {
@@ -57,24 +58,36 @@
         font-size: 11px;
         font-weight: 800;
         margin-bottom: 16px;
+        backdrop-filter: blur(10px);
       }
 
       .header h1 {
         margin: 0;
-        font-size: 30px;
-        line-height: 1.08;
-        letter-spacing: -.04em;
+        font-size: clamp(30px, 5vw, 56px);
+        line-height: 1.02;
+        letter-spacing: -.055em;
         font-weight: 950;
       }
 
       .header p {
-        max-width: 330px;
-        margin: 12px auto 0;
-        font-size: 14px;
-        line-height: 1.6;
+        max-width: 520px;
+        margin: 14px auto 0;
+        font-size: clamp(14px, 2vw, 17px);
+        line-height: 1.65;
         color: rgba(239,246,255,.93);
         font-weight: 600;
       }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr);
+        gap: 18px;
+        align-items: stretch;
+        margin: 0 auto 18px;
+        max-width: 980px;
+      }
+
+      .bottom-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
 
       .card {
         background: white;
@@ -85,13 +98,12 @@
 
       .main-card {
         text-align: center;
-        padding: 28px 22px;
-        margin-bottom: 18px;
+        padding: 30px 24px;
       }
 
       .logo {
-        width: 82px;
-        height: 82px;
+        width: 88px;
+        height: 88px;
         margin: 0 auto 18px;
         border-radius: 28px;
         display: grid;
@@ -101,6 +113,22 @@
         box-shadow: inset 0 0 0 1px #dbeafe, 0 12px 24px rgba(37,99,235,.12);
         font-size: 38px;
         font-weight: 950;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 10px;
+      }
+
+      .logo span {
+        position: absolute;
+        inset: 0;
+        display: none;
+        place-items: center;
       }
 
       .main-card h2 {
@@ -132,12 +160,14 @@
         font-weight: 950;
         text-decoration: none;
         box-shadow: 0 14px 28px rgba(0,184,148,.25);
+        transition: .18s ease;
       }
+
+      .primary:hover { background: #00a383; transform: translateY(-1px); }
 
       .grid {
         display: grid;
         gap: 12px;
-        margin-bottom: 18px;
       }
 
       .item {
@@ -153,6 +183,13 @@
         text-decoration: none;
         color: inherit;
         box-shadow: 0 12px 30px rgba(15,23,42,.05);
+        transition: .18s ease;
+      }
+
+      .item:hover {
+        border-color: #bfdbfe;
+        background: #f8fbff;
+        transform: translateY(-2px);
       }
 
       .icon {
@@ -172,20 +209,23 @@
       .item small { display: block; margin-top: 4px; color: #64748b; font-size: 12px; line-height: 1.45; font-weight: 600; }
       .arrow { margin-left: auto; color: #94a3b8; font-size: 22px; }
 
-      .info {
-        padding: 22px;
-        margin-bottom: 16px;
+      .info, .about {
+        padding: 24px;
       }
 
-      .section-title {
+      .section-title, .detail-row, .about-title, footer {
         display: flex;
         align-items: center;
         gap: 9px;
-        margin-bottom: 10px;
       }
 
       .section-title h3 { margin: 0; font-size: 16px; font-weight: 950; }
-      .info p { color: #64748b; line-height: 1.65; font-size: 13px; font-weight: 500; }
+      .info > p { color: #64748b; border-bottom: 1px solid #e2e8f0; padding-bottom: 18px; margin: 10px 0 18px; line-height: 1.65; font-size: 13px; font-weight: 500; }
+
+      .detail-row { align-items: flex-start; color: #1e3a8a; margin-bottom: 16px; }
+      .detail-row strong, .detail-row span { display: block; }
+      .detail-row strong { color: #334155; margin-bottom: 4px; font-size: 14px; }
+      .detail-row span { color: #64748b; font-size: 13px; }
 
       .phone {
         display: flex;
@@ -200,24 +240,48 @@
         font-weight: 950;
       }
 
-      .warning {
-        border-color: #fde68a;
-        background: #fffbeb;
-        color: #92400e;
-        padding: 18px;
-        border-radius: 22px;
-        box-shadow: none;
+      .about {
+        border-color: #dbeafe;
+        background: linear-gradient(180deg, #fff, #eff6ff);
+        color: #1e3a8a;
       }
 
-      .warning strong { font-weight: 950; }
-      .warning p { margin: 8px 0 0; font-size: 12px; line-height: 1.6; font-weight: 600; }
+      .about strong { font-weight: 950; color: #1e293b; }
+      .about p { margin: 10px 0 0; color: #475569; font-size: 13px; line-height: 1.7; font-weight: 600; }
 
       footer {
-        text-align: center;
+        justify-content: center;
         color: #94a3b8;
         padding-top: 24px;
         font-size: 11px;
         font-weight: 800;
+      }
+
+      .reveal { animation: revealUp .72s cubic-bezier(.22,.8,.28,1) both; }
+      .reveal-1 { animation-delay: .04s; }
+      .reveal-2 { animation-delay: .12s; }
+      .reveal-3 { animation-delay: .2s; }
+      .reveal-4 { animation-delay: .28s; }
+      .reveal-5 { animation-delay: .36s; }
+
+      @keyframes revealUp {
+        from { opacity: 0; transform: translateY(22px) scale(.98); filter: blur(8px); }
+        to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+      }
+
+      @media (max-width: 760px) {
+        .container { width: min(100%, 460px); padding: 28px 20px 36px; }
+        .content-grid, .bottom-grid { grid-template-columns: 1fr; max-width: 460px; }
+      }
+
+      @media (max-width: 380px) {
+        .container { padding-left: 14px; padding-right: 14px; }
+        .header h1 { font-size: 26px; }
+        .item { padding: 14px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { animation: none; }
       }
     </style>
   </head>
@@ -225,54 +289,65 @@
     <main class="page">
       <div class="bg"></div>
       <section class="container">
-        <header class="header">
+        <header class="header reveal reveal-1">
           <div class="badge" id="serviceName">✓ Layanan Finansial</div>
           <h1 id="pageTitle">Pusat Bantuan Layanan Finansial</h1>
           <p id="pageSubtitle">Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.</p>
         </header>
 
-        <section class="card main-card">
-          <div class="logo">A</div>
-          <h2>Butuh Bantuan Sekarang?</h2>
-          <p>Klik tombol di bawah untuk membuka WhatsApp. Nomor dan isi pesan bisa kamu edit di file konfigurasi project.</p>
-          <a class="primary" href="#" id="waButton">💬 Hubungi via WhatsApp</a>
-        </section>
+        <div class="content-grid">
+          <section class="card main-card reveal reveal-2">
+            <div class="logo">
+              <img id="logoImage" src="./logoweb.png" alt="Logo website" />
+              <span id="logoFallback">A</span>
+            </div>
+            <h2>Butuh Bantuan Sekarang?</h2>
+            <p>Klik tombol di bawah untuk membuka WhatsApp. Nomor dan isi pesan bisa kamu edit di file konfigurasi project.</p>
+            <a class="primary" href="#" id="waButton">💬 Hubungi via WhatsApp</a>
+          </section>
 
-        <section class="grid">
-          <a class="item" href="#" data-wa>
-            <span class="icon">💳</span>
-            <span><strong>Informasi Pembayaran</strong><small>Bantuan cek metode pembayaran dan status transaksi.</small></span>
-            <span class="arrow">›</span>
-          </a>
-          <a class="item" href="#" data-wa>
-            <span class="icon">📄</span>
-            <span><strong>Konsultasi Cicilan</strong><small>Diskusi kendala cicilan dan kebutuhan layanan.</small></span>
-            <span class="arrow">›</span>
-          </a>
-          <a class="item" href="#" data-wa>
-            <span class="icon">🎧</span>
-            <span><strong>Bantuan Akun</strong><small>Bantuan umum seputar akses akun dan aplikasi.</small></span>
-            <span class="arrow">›</span>
-          </a>
-          <a class="item" href="#" data-wa>
-            <span class="icon">💬</span>
-            <span><strong>Chat WhatsApp</strong><small>Hubungi bantuan melalui pesan WhatsApp.</small></span>
-            <span class="arrow">›</span>
-          </a>
-        </section>
+          <section class="grid reveal reveal-3">
+            <a class="item" href="#" data-wa>
+              <span class="icon">💳</span>
+              <span><strong>Informasi Pembayaran</strong><small>Bantuan cek metode pembayaran dan status transaksi.</small></span>
+              <span class="arrow">›</span>
+            </a>
+            <a class="item" href="#" data-wa>
+              <span class="icon">📄</span>
+              <span><strong>Konsultasi Cicilan</strong><small>Diskusi kendala cicilan dan kebutuhan layanan.</small></span>
+              <span class="arrow">›</span>
+            </a>
+            <a class="item" href="#" data-wa>
+              <span class="icon">🎧</span>
+              <span><strong>Bantuan Akun</strong><small>Bantuan umum seputar akses akun dan aplikasi.</small></span>
+              <span class="arrow">›</span>
+            </a>
+            <a class="item" href="#" data-wa>
+              <span class="icon">💬</span>
+              <span><strong>Chat WhatsApp</strong><small>Hubungi bantuan melalui pesan WhatsApp.</small></span>
+              <span class="arrow">›</span>
+            </a>
+          </section>
+        </div>
 
-        <section class="card info">
-          <div class="section-title"><span>ℹ️</span><h3>Informasi Halaman</h3></div>
-          <p>Halaman ini dibuat untuk mempermudah pengunjung menghubungi bantuan melalui WhatsApp.</p>
-          <div class="phone">📞 <span id="displayPhone">Nomor belum diatur</span></div>
-        </section>
+        <div class="content-grid bottom-grid">
+          <section class="card info reveal reveal-4">
+            <div class="section-title"><span>ℹ️</span><h3>Informasi Halaman</h3></div>
+            <p>Halaman ini dibuat untuk mempermudah pengunjung menghubungi bantuan melalui WhatsApp.</p>
+            <div class="detail-row">
+              <span>📍</span>
+              <div><strong>Area Layanan</strong><span id="address">Indonesia</span></div>
+            </div>
+            <div class="phone">📞 <span id="displayPhone">Nomor belum diatur</span></div>
+          </section>
 
-        <section class="card warning">
-          <strong>Catatan Keamanan</strong>
-          <p id="disclaimer">Jangan kirim OTP, PIN, password, data kartu, dokumen identitas, atau data sensitif melalui chat.</p>
-        </section>
+          <section class="card about reveal reveal-5">
+            <div class="about-title"><span>ℹ️</span><strong id="aboutTitle">Tentang Kami</strong></div>
+            <p id="aboutText">Kami menyediakan halaman informasi bantuan layanan finansial yang mudah diakses.</p>
+          </section>
+        </div>
 
-        <footer>© 2026 Pusat Informasi Layanan. Seluruh hak cipta dilindungi.</footer>
+        <footer class="reveal reveal-5">© 2026 Pusat Informasi Layanan. Seluruh hak cipta dilindungi.</footer>
       </section>
     </main>
 
@@ -280,13 +355,23 @@
       import { contactConfig, getWhatsappLink } from './src/config/contact.js';
 
       const whatsappUrl = getWhatsappLink();
+      const logoImage = document.getElementById('logoImage');
+      const logoFallback = document.getElementById('logoFallback');
+
+      logoImage.src = contactConfig.logoImage || './logoweb.png';
+      logoImage.onerror = () => {
+        logoImage.style.display = 'none';
+        logoFallback.style.display = 'grid';
+      };
 
       document.getElementById('serviceName').textContent = `✓ ${contactConfig.serviceName || 'Layanan Finansial'}`;
       document.getElementById('pageTitle').textContent = contactConfig.pageTitle || 'Pusat Bantuan Layanan Finansial';
       document.getElementById('pageSubtitle').textContent = contactConfig.pageSubtitle || 'Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.';
       document.getElementById('displayPhone').textContent = contactConfig.displayPhone || 'Nomor belum diatur';
+      document.getElementById('address').textContent = contactConfig.address || 'Indonesia';
       document.getElementById('waButton').href = whatsappUrl;
-      document.getElementById('disclaimer').textContent = contactConfig.disclaimer || 'Jangan kirim OTP, PIN, password, data kartu, dokumen identitas, atau data sensitif melalui chat.';
+      document.getElementById('aboutTitle').textContent = contactConfig.aboutTitle || 'Tentang Kami';
+      document.getElementById('aboutText').textContent = contactConfig.aboutText || 'Kami menyediakan halaman informasi bantuan layanan finansial yang mudah diakses.';
       document.querySelectorAll('[data-wa]').forEach((el) => {
         el.href = whatsappUrl;
       });

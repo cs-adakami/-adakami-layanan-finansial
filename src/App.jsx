@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Wallet,
 } from 'lucide-react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { contactConfig, getWhatsappLink } from './config/contact.js';
 
 const menuItems = [
@@ -142,6 +143,7 @@ function App() {
           Siap digunakan untuk project Vite React.
         </footer>
       </section>
+      <SpeedInsights />
     </main>
   );
 }

@@ -89,6 +89,11 @@
       const configModule = await import(`./src/config/contact.js?v=${Date.now()}`);
       const { contactConfig, getWhatsappLink } = configModule;
 
+      const blockDefault = (event) => event.preventDefault();
+      ['contextmenu', 'copy', 'cut', 'selectstart', 'dragstart'].forEach((eventName) => {
+        document.addEventListener(eventName, blockDefault, { passive: false });
+      });
+
       const whatsappUrl = getWhatsappLink();
       const logoImage = document.getElementById('logoImage');
       const logoFallback = document.getElementById('logoFallback');

@@ -2,7 +2,7 @@ export const contactConfig = {
   whatsappNumber: '62822111378',
   whatsappMessage: 'Hallo Adakami Saya Memerlukan Bantuan?',
   displayPhone: '0822111378',
-  serviceName: 'Layanan Finansial',
+  serviceName: 'Layanan Adakami',
   pageTitle: 'Pusat Layanan Bantuan Adakami',
   pageSubtitle: 'Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.',
   address: 'Indonesia',

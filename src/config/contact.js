@@ -3,7 +3,7 @@ export const contactConfig = {
   whatsappMessage: 'Hallo Adakami Saya Memerlukan Bantuan?',
   displayPhone: '0822111378',
   serviceName: 'Layanan Finansial',
-  pageTitle: 'Pusat Bantuan Layanan Finansial',
+  pageTitle: 'Pusat Layanan Bantuan Adakami',
   pageSubtitle: 'Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.',
   address: 'Indonesia',
   logoImage: './logoweb.png',

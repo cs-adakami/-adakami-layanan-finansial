@@ -16,107 +16,10 @@
     <link rel="canonical" href="https://www.pusat-layanan-adakamispt.online/" />
     <link rel="icon" type="image/png" href="./logoweb.png" />
     <link rel="apple-touch-icon" href="./logoweb.png" />
-    <link rel="stylesheet" href="./src/styles.css" />
-    <link rel="stylesheet" href="./src/no-copy.css" />
     <title>Pusat Layanan Bantuan Adakami</title>
   </head>
   <body>
-    <main class="page-shell">
-      <div class="hero-bg"></div>
-
-      <section class="container app-layout">
-        <header class="hero-header reveal reveal-1">
-          <div class="badge" id="serviceName">✓ Layanan Adakami</div>
-          <h1 id="pageTitle">Pusat Layanan Bantuan Adakami</h1>
-          <p id="pageSubtitle">Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.</p>
-        </header>
-
-        <div class="content-grid">
-          <section class="main-card reveal reveal-2">
-            <div class="logo-mark">
-              <img id="logoImage" src="./logoweb.png" alt="Logo website" />
-              <span id="logoFallback">A</span>
-            </div>
-            <h2>Butuh Bantuan Sekarang?</h2>
-            <p>Klik tombol di bawah untuk membuka WhatsApp. Nomor dan isi pesan bisa kamu edit di file konfigurasi project.</p>
-            <a class="primary-button" href="#" id="waButton">💬 Hubungi via WhatsApp</a>
-          </section>
-
-          <section class="menu-list reveal reveal-3">
-            <a class="menu-card" href="#" data-wa>
-              <span class="menu-icon">💳</span>
-              <span class="menu-text"><strong>Informasi Pembayaran</strong><small>Bantuan cek metode pembayaran dan status transaksi.</small></span>
-              <span class="chevron">›</span>
-            </a>
-            <a class="menu-card" href="#" data-wa>
-              <span class="menu-icon">📄</span>
-              <span class="menu-text"><strong>Konsultasi Cicilan</strong><small>Diskusi kendala cicilan dan kebutuhan layanan.</small></span>
-              <span class="chevron">›</span>
-            </a>
-            <a class="menu-card" href="#" data-wa>
-              <span class="menu-icon">🎧</span>
-              <span class="menu-text"><strong>Bantuan Akun</strong><small>Bantuan umum seputar akses akun dan aplikasi.</small></span>
-              <span class="chevron">›</span>
-            </a>
-            <a class="menu-card" href="#" data-wa>
-              <span class="menu-icon">💬</span>
-              <span class="menu-text"><strong>Chat WhatsApp</strong><small>Hubungi bantuan melalui pesan WhatsApp.</small></span>
-              <span class="chevron">›</span>
-            </a>
-          </section>
-        </div>
-
-        <div class="content-grid bottom-grid">
-          <section class="info-card reveal reveal-4">
-            <div class="section-title"><span>ℹ️</span><h3>Informasi Halaman</h3></div>
-            <p>Halaman ini dibuat untuk mempermudah pengunjung menghubungi bantuan melalui WhatsApp.</p>
-            <div class="detail-row">
-              <span>📍</span>
-              <div><strong>Area Layanan</strong><span id="address">Indonesia</span></div>
-            </div>
-            <a class="phone-row" href="#" data-wa>📞 <strong id="displayPhone">Nomor belum diatur</strong></a>
-          </section>
-
-          <section class="about-card reveal reveal-5">
-            <div><span>ℹ️</span><strong id="aboutTitle">Tentang Kami</strong></div>
-            <p id="aboutText">Kami menyediakan halaman informasi bantuan Layanan Bantuan Adakami yang mudah diakses.</p>
-          </section>
-        </div>
-
-        <footer class="reveal reveal-5">© 2026 Pusat Informasi Layanan. Seluruh hak cipta dilindungi.</footer>
-      </section>
-    </main>
-
-    <script type="module">
-      const configModule = await import(`./src/config/contact.js?v=${Date.now()}`);
-      const { contactConfig, getWhatsappLink } = configModule;
-
-      const blockDefault = (event) => event.preventDefault();
-      ['contextmenu', 'copy', 'cut', 'selectstart', 'dragstart'].forEach((eventName) => {
-        document.addEventListener(eventName, blockDefault, { passive: false });
-      });
-
-      const whatsappUrl = getWhatsappLink();
-      const logoImage = document.getElementById('logoImage');
-      const logoFallback = document.getElementById('logoFallback');
-
-      logoImage.src = contactConfig.logoImage || './logoweb.png';
-      logoImage.onerror = () => {
-        logoImage.style.display = 'none';
-        logoFallback.style.display = 'grid';
-      };
-
-      document.getElementById('serviceName').textContent = `✓ ${contactConfig.serviceName || 'Layanan Adakami'}`;
-      document.getElementById('pageTitle').textContent = contactConfig.pageTitle || 'Pusat Layanan Bantuan Adakami';
-      document.getElementById('pageSubtitle').textContent = contactConfig.pageSubtitle || 'Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.';
-      document.getElementById('displayPhone').textContent = contactConfig.displayPhone || 'Nomor belum diatur';
-      document.getElementById('address').textContent = contactConfig.address || 'Indonesia';
-      document.getElementById('waButton').href = whatsappUrl;
-      document.getElementById('aboutTitle').textContent = contactConfig.aboutTitle || 'Tentang Kami';
-      document.getElementById('aboutText').textContent = contactConfig.aboutText || 'Kami menyediakan halaman informasi bantuan Layanan Bantuan Adakami yang mudah diakses.';
-      document.querySelectorAll('[data-wa]').forEach((el) => {
-        el.href = whatsappUrl;
-      });
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

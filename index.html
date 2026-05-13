@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Halaman informasi bantuan layanan finansial." />
-    <meta property="og:title" content="Pusat Bantuan Layanan Finansial" />
+    <meta name="description" content="Halaman informasi bantuan Layanan Bantuan Adakami." />
+    <meta property="og:title" content="Pusat Layanan Bantuan Adakami" />
     <meta property="og:description" content="Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cs-adakami.github.io/-adakami-layanan-finansial/" />
     <meta property="og:image" content="https://cs-adakami.github.io/-adakami-layanan-finansial/logoweb.png" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Pusat Bantuan Layanan Finansial" />
+    <meta name="twitter:title" content="Pusat Bantuan Layanan Bantuan Adakami" />
     <meta name="twitter:description" content="Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan." />
     <meta name="twitter:image" content="https://cs-adakami.github.io/-adakami-layanan-finansial/logoweb.png" />
     <link rel="icon" type="image/png" href="./logoweb.png" />
     <link rel="apple-touch-icon" href="./logoweb.png" />
     <link rel="stylesheet" href="./src/styles.css" />
     <link rel="stylesheet" href="./src/no-copy.css" />
-    <title>Pusat Bantuan Layanan Finansial</title>
+    <title>Pusat Bantuan Layanan Bantuan Adakami</title>
   </head>
   <body>
     <main class="page-shell">
@@ -25,8 +25,8 @@
 
       <section class="container app-layout">
         <header class="hero-header reveal reveal-1">
-          <div class="badge" id="serviceName">✓ Layanan Finansial</div>
-          <h1 id="pageTitle">Pusat Bantuan Layanan Finansial</h1>
+          <div class="badge" id="serviceName">✓ Layanan Bantuan Adakami</div>
+          <h1 id="pageTitle">Pusat Bantuan Layanan Bantuan Adakami</h1>
           <p id="pageSubtitle">Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.</p>
         </header>
 
@@ -78,7 +78,7 @@
 
           <section class="about-card reveal reveal-5">
             <div><span>ℹ️</span><strong id="aboutTitle">Tentang Kami</strong></div>
-            <p id="aboutText">Kami menyediakan halaman informasi bantuan layanan finansial yang mudah diakses.</p>
+            <p id="aboutText">Kami menyediakan halaman informasi bantuan Layanan Bantuan Adakami yang mudah diakses.</p>
           </section>
         </div>
 
@@ -105,14 +105,14 @@
         logoFallback.style.display = 'grid';
       };
 
-      document.getElementById('serviceName').textContent = `✓ ${contactConfig.serviceName || 'Layanan Finansial'}`;
-      document.getElementById('pageTitle').textContent = contactConfig.pageTitle || 'Pusat Bantuan Layanan Finansial';
+      document.getElementById('serviceName').textContent = `✓ ${contactConfig.serviceName || 'Layanan Bantuan Adakami'}`;
+      document.getElementById('pageTitle').textContent = contactConfig.pageTitle || 'Pusat Bantuan Layanan Bantuan Adakami';
       document.getElementById('pageSubtitle').textContent = contactConfig.pageSubtitle || 'Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.';
       document.getElementById('displayPhone').textContent = contactConfig.displayPhone || 'Nomor belum diatur';
       document.getElementById('address').textContent = contactConfig.address || 'Indonesia';
       document.getElementById('waButton').href = whatsappUrl;
       document.getElementById('aboutTitle').textContent = contactConfig.aboutTitle || 'Tentang Kami';
-      document.getElementById('aboutText').textContent = contactConfig.aboutText || 'Kami menyediakan halaman informasi bantuan layanan finansial yang mudah diakses.';
+      document.getElementById('aboutText').textContent = contactConfig.aboutText || 'Kami menyediakan halaman informasi bantuan Layanan Bantuan Adakami yang mudah diakses.';
       document.querySelectorAll('[data-wa]').forEach((el) => {
         el.href = whatsappUrl;
       });

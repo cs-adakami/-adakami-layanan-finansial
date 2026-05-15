@@ -141,7 +141,7 @@ function App() {
 
         <footer className="reveal reveal-5">
           <Clock size={13} />
-          Siap digunakan untuk project Vite React.
+          ©2026 Pusat Informasi Layanan. Seluruh hak cipta dilindungi
         </footer>
       </section>
       <Analytics />

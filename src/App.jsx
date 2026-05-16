@@ -28,7 +28,7 @@ const menuItems = [
     message: 'Halo, saya perlu panduan pembayaran.',
   },
   {
-    title: 'Konsultasi Adakami',
+    title: 'Konsultasi cicilan',
     description: 'Bantu jelaskan kendala cicilan, jatuh tempo, dan opsi tindak lanjut.',
     icon: CreditCard,
     message: 'Halo, saya ingin konsultasi kendala cicilan.',

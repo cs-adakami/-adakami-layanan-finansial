@@ -1,8 +1,8 @@
 export const contactConfig = {
   whatsappNumber: '62822111378',
   whatsappMessage: 'Halo, saya perlu informasi bantuan layanan finansial.',
-  displayPhone: '0822 1113 78',
-  serviceName: 'Pusat Informasi Finansial',
+  displayPhone: '0822 111 378',
+  serviceName: 'Pusat Konsultasi Informasi Adakami',
   pageTitle: 'Bantuan finansial yang jelas, aman, dan mudah dihubungi.',
   pageSubtitle:
     'Temukan panduan pembayaran, konsultasi kendala cicilan, dan informasi bantuan akun melalui halaman responsif yang terhubung ke WhatsApp.',

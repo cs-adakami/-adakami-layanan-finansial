@@ -1,21 +1,24 @@
 export const contactConfig = {
   whatsappNumber: '62822111378',
-  whatsappMessage: 'Hallo Adakami Saya Memerlukan Bantuan?',
-  displayPhone: '0822111378',
-  serviceName: 'Layanan Adakami',
-  pageTitle: 'Pusat Layanan Bantuan Adakami',
-  pageSubtitle: 'Informasi bantuan umum, pembayaran, akun, dan konsultasi layanan.',
+  whatsappMessage: 'Halo, saya perlu informasi bantuan layanan finansial.',
+  displayPhone: '0822 1113 78',
+  serviceName: 'Pusat Informasi Finansial',
+  pageTitle: 'Bantuan finansial yang jelas, aman, dan mudah dihubungi.',
+  pageSubtitle:
+    'Temukan panduan pembayaran, konsultasi kendala cicilan, dan informasi bantuan akun melalui halaman responsif yang terhubung ke WhatsApp.',
   address: 'Indonesia',
+  supportHours: 'Setiap hari, 08.00 - 21.00 WIB',
+  responseTime: 'Respons awal ±5 menit',
   logoImage: './logoweb.png',
-  aboutTitle: 'Tentang Kami',
+  aboutTitle: 'Informasi layanan',
   aboutText:
-    'Kami menyediakan halaman informasi bantuan layanan finansial yang mudah diakses, responsif, dan terhubung ke WhatsApp untuk memudahkan pengunjung mengirim pesan.',
+    'Halaman ini bersifat informatif dan bukan kanal resmi institusi keuangan mana pun. Kami tidak meminta OTP, PIN, password, data kartu, dokumen identitas, atau data sensitif pengguna.',
 };
 
-export function getWhatsappLink() {
+export function getWhatsappLink(message = contactConfig.whatsappMessage) {
   const number = contactConfig.whatsappNumber
     .replace(/[^0-9]/g, '')
     .replace(/^0/, '62');
 
-  return `https://wa.me/${number}?text=${encodeURIComponent(contactConfig.whatsappMessage)}`;
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }

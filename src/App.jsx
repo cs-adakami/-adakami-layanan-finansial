@@ -57,7 +57,7 @@ const faqItems = [
   {
     question: 'Apakah halaman ini meminta OTP, PIN, atau password?',
     answer:
-      'Tidak. Halaman ini hanya menyediakan informasi dan tombol kontak. Jangan pernah mengirim OTP, PIN, password, data kartu, atau dokumen identitas melalui chat.',
+      'Halaman ini hanya menyediakan informasi dan tombol kontak. Jangan pernah mengirim OTP, PIN, password, data kartu, atau dokumen identitas melalui chat.',
   },
   {
     question: 'Apa fungsi halaman ini?',
@@ -65,9 +65,9 @@ const faqItems = [
       'Halaman ini membantu pengunjung memilih topik bantuan dan membuka WhatsApp dengan pesan awal yang relevan.',
   },
   {
-    question: 'Apakah bisa digunakan dari HP?',
+    question: '',
     answer:
-      'Bisa. Tampilan dibuat responsif, dengan tombol bantuan tetap tersedia di bagian bawah layar pada perangkat mobile.',
+      '',
   },
 ];
 
@@ -153,9 +153,9 @@ function App() {
                 <span>Jam layanan</span>
               </div>
             </div>
-            <div className="security-note">
+            <div className="">
               <LockKeyhole size={18} />
-              <span>Tidak meminta OTP, PIN, password, atau data sensitif.</span>
+              <span></span>
             </div>
           </aside>
         </header>

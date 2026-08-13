@@ -1,5 +1,5 @@
 window.contactConfig = {
-  whatsappNumber: '62822111378',
+  whatsappNumber: '6287788836766',
   whatsappMessage: 'Hallo Adakami Saya Memerlukan Bantuan?',
-  displayPhone: '0822111378'
+  displayPhone: '087788836766'
 };
